@@ -3,7 +3,7 @@ Do this to generate your change history
     $ git log --pretty=format:'  * %h - %s (%an, %ad)' vX.Y.Z..HEAD
 
 #### 1.9.1.pre.jruby (2016-03-18)
-* TBD     - Add JRuby support. Drop mysql&sqlite support and force psql. Moved from Redcarpet to Kramdown.
+* 86ab2f3 - Add JRuby support. Drop mysql&sqlite support and force psql. Moved from Redcarpet to Kramdown.
 
 #### 1.9.1 (2016-02-26)
 * e6e6d49 - Release version 1.9.1 (Sergei Matheson, Fri Feb 26 09:26:52 2016 +1100)
