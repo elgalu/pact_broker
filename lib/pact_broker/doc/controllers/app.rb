@@ -1,6 +1,7 @@
 require 'padrino-core'
 require 'kramdown'
 require 'tilt/kramdown'
+require 'tilt/erubis'
 
 # Tilt.prefer Tilt::RedcarpetTemplate
 Tilt.prefer Tilt::KramdownTemplate

@@ -35,8 +35,8 @@ module PactBroker
             expect(subject).to include("<link rel='stylesheet'")
             expect(subject).to include("href='/stylesheets/github.css'")
             expect(subject).to include("adrum.js")
-            # expect(subject).to include('<pre><code')
-            expect(subject).to include('<code')
+            # expect(subject).to include('<code')
+            expect(subject).to include('<pre><code')
             # expect(subject).to include('&quot;method&quot;:')
             expect(subject).to include('"method')
             # expect(subject).to match /<h\d>.*Some Consumer/

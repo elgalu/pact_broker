@@ -2,6 +2,7 @@ require 'pact/consumer_contract'
 require 'pact/reification'
 # require 'redcarpet'
 require 'kramdown'
+require 'tilt/erubis'
 require 'pact/doc/markdown/consumer_contract_renderer'
 require 'pact_broker/api/pact_broker_urls'
 require 'pact_broker/logging'
@@ -84,8 +85,20 @@ module PactBroker
         end
 
         def html
-          # Redcarpet::Markdown.new(Redcarpet::Render::HTML, :fenced_code_blocks => true, :lax_spacing => true).render(markdown)
-          Kramdown::Document.new(markdown).to_html
+          #== redcarpet ==#
+          # opts = { fenced_code_blocks: true, lax_spacing: true }
+          # Redcarpet::Markdown.new(Redcarpet::Render::HTML, opts).render(markdown)
+
+          #== kramdown with rougue ==#
+          opts = { syntax_highlighter: 'rouge' }
+
+          #== kramdown ==#
+          # opts = {}
+
+          Kramdown::Document.new(markdown, opts).to_html.
+            gsub('<code ', '<pre><code ').
+            gsub('<code>', '<pre><code>').
+            gsub('</code>', '</code></pre>')
         end
 
         def consumer_contract

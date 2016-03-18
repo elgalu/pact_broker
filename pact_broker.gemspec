@@ -35,6 +35,7 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency 'haml', '~> 4.0', '>= 4.0.7'
   gem.add_runtime_dependency 'trailblazer', '~> 0.1.2'
   gem.add_runtime_dependency 'pg_jruby', '~> 0.17.1'
+  gem.add_runtime_dependency 'rouge', '~> 1.10', '>= 1.10.1'
 
   gem.add_development_dependency 'jdbc-sqlite3', '~> 3.8', '>= 3.8.11'
   gem.add_development_dependency 'pry', '~> 0.10.3'
