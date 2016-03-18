@@ -1,7 +1,9 @@
 require 'padrino-core'
-require 'redcarpet'
+require 'kramdown'
+require 'tilt/kramdown'
 
-Tilt.prefer Tilt::RedcarpetTemplate
+# Tilt.prefer Tilt::RedcarpetTemplate
+Tilt.prefer Tilt::KramdownTemplate
 
 module PactBroker
   module Doc

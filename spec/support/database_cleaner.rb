@@ -8,11 +8,17 @@ RSpec.configure do |config|
     end
   end
 
-  config.before(:each) do
-    DatabaseCleaner.start if defined?(::DB)
+  config.around(:each) do |example|
+    DatabaseCleaner.cleaning do
+      example.run
+    end
   end
 
-  config.after(:each) do
-    DatabaseCleaner.clean if defined?(::DB)
-  end
+  # config.before(:each) do
+  #   DatabaseCleaner.start if defined?(::DB)
+  # end
+
+  # config.after(:each) do
+  #   DatabaseCleaner.clean if defined?(::DB)
+  # end
 end

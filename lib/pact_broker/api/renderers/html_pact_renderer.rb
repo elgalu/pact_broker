@@ -1,6 +1,7 @@
 require 'pact/consumer_contract'
 require 'pact/reification'
-require 'redcarpet'
+# require 'redcarpet'
+require 'kramdown'
 require 'pact/doc/markdown/consumer_contract_renderer'
 require 'pact_broker/api/pact_broker_urls'
 require 'pact_broker/logging'
@@ -39,6 +40,7 @@ module PactBroker
           <link rel='stylesheet' type='text/css' href='/stylesheets/pact.css'>
           <link rel='stylesheet' type='text/css' href='/stylesheets/github-json.css'>
           <script src='/javascripts/highlight.pack.js'></script>
+          <script src='/javascripts/adrum.js'></script>
           <script>hljs.initHighlightingOnLoad();</script>"
         end
 
@@ -82,7 +84,8 @@ module PactBroker
         end
 
         def html
-          Redcarpet::Markdown.new(Redcarpet::Render::HTML, :fenced_code_blocks => true, :lax_spacing => true).render(markdown)
+          # Redcarpet::Markdown.new(Redcarpet::Render::HTML, :fenced_code_blocks => true, :lax_spacing => true).render(markdown)
+          Kramdown::Document.new(markdown).to_html
         end
 
         def consumer_contract
